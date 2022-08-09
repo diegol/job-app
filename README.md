@@ -161,7 +161,7 @@ Also I used other libraries like:
 Just did one quick test that is in src/jobs/test/job-service.test.ts, but usually I do `unit tests` and `integration test`. The command to run it is `npm run test`
 
 ## Directory structure
-
+```bash
 ├── src
 │ ├── common
 │ ├── entities
@@ -180,7 +180,7 @@ Just did one quick test that is in src/jobs/test/job-service.test.ts, but usuall
 ├── test
 ├── other configuration files...
 └── README.md
-
+```
 Basically each route is associated with a lambda function in stacks/MyStack.js, then in thee handler function
 using the different schemas we validate all input data coming from the user and throw a validation error if is an issue.
 

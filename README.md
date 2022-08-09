@@ -171,9 +171,10 @@ Just did one quick test that is in src/jobs/test/job-service.test.ts, but usuall
 │ ├── jobs <---- All related to jobs
 │ │ ├── dto
 │ │ ├── functions <---- One Lamda function for each api call
+│ │ ├── tests 
 │ │ └── schemas <---- To validate all the user input
 │ │ └── job.service.ts <---- Where the business logic goes
-│ ├── notes <---- All related to notes (similar structure than jobs
+│ ├── notes <---- All related to notes (similar structure than jobs)
 │ └── migrations <-- DB migrationss
 │
 ├── stacks <---- Where all SST/CDK infrastructure code is defined

@@ -1,0 +1,46 @@
+{
+   "name": "job-app",
+   "version": "0.1.0",
+   "private": true,
+   "scripts": {
+      "start": "sst start",
+      "build": "sst build",
+      "deploy": "sst deploy",
+      "remove": "sst remove",
+      "typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+      "test": "vitest run",
+      "gen": "hygen"
+   },
+   "eslintConfig": {
+      "extends": [
+         "serverless-stack"
+      ]
+   },
+   "devDependencies": {
+      "@faker-js/faker": "^7.4.0",
+      "@serverless-stack/cli": "^1.6.7",
+      "@serverless-stack/resources": "^1.6.7",
+      "@tsconfig/node16": "^1.0.3",
+      "aws-cdk-lib": "2.32.0",
+      "hygen": "^6.2.8",
+      "typescript": "^4.7.4",
+      "vitest": "^0.21.0"
+   },
+   "dependencies": {
+      "@aws-lambda-powertools/logger": "^1.0.2",
+      "@aws-lambda-powertools/metrics": "^1.0.2",
+      "@aws-lambda-powertools/tracer": "^1.0.2",
+      "@middy/cloudwatch-metrics": "^3.1.1",
+      "@middy/core": "^3.1.1",
+      "@middy/http-error-handler": "^3.1.1",
+      "@middy/http-json-body-parser": "^3.1.1",
+      "@middy/http-response-serializer": "^3.1.1",
+      "@middy/validator": "^3.1.1",
+      "data-api-client": "^1.2.0",
+      "inversify": "^6.0.1",
+      "module-name": "^0.0.1-security",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "0.3.7",
+      "typeorm-aurora-data-api-driver": "^2.3.5"
+   }
+}

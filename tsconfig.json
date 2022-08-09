@@ -1,0 +1,20 @@
+/*{
+    "include": ["src/**","src/*",", "services/repositories/jobrepository.ts"services/**","services/*"],
+    "compilerOptions": {
+        "lib": ["es2020"],
+        "target": "es2020",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "outDir": "./build",
+        "esModuleInterop": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "strict": false,
+        "sourceMap": true
+    }
+}
+*/
+{
+    "extends": "@tsconfig/node16/tsconfig.json",
+    "include": ["src","services"],
+  }

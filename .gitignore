@@ -1,0 +1,16 @@
+.idea/
+.vscode/
+node_modules/
+/build
+tmp/
+temp/
+
+# misc
+.DS_Store
+
+# sst build output
+.build
+.sst
+
+# environments
+.env*.local

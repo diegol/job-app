@@ -5,8 +5,8 @@ import { CreateNoteInputDto } from "../notes/dto/create-note-input.dto";
 
 import { injectable, inject } from "inversify";
 import TYPES from "../types";
-import { CreateDataSource } from "../data-source";
-import { ApplicationLogger } from "../ common/application-logger";
+import { CreateDataSource, ApplicationLogger } from "../common/data-source";
+
 import { Logger, injectLambdaContext } from "@aws-lambda-powertools/logger";
 import {
   ApplicationLoggerInterface,

@@ -10,7 +10,7 @@ import {
   container,
   TYPES,
   Tracer,
-} from "../../ common/index";
+} from "../../common/index";
 
 import { JobServiceInterface } from "../../interfaces";
 import { eventSchema } from "../schemas/list-job-filter-schema";

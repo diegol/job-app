@@ -10,7 +10,7 @@ import {
   container,
   TYPES,
   Tracer,
-} from "../../ common/index";
+} from "../../common/index";
 
 import { eventSchema } from "../schemas/update-note-input-schema";
 import { NoteService } from "../note.service";

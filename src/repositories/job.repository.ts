@@ -1,6 +1,6 @@
 import { injectable, inject } from "inversify";
 import TYPES from "../types";
-import { CreateDataSource } from "../data-source";
+import { CreateDataSource } from "../common/data-source";
 import { Logger } from "@aws-lambda-powertools/logger";
 import {
   ApplicationLoggerInterface,

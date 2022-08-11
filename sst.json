@@ -1,5 +1,5 @@
 {
-  "name": "orm-test",
+  "name": "job-app",
   "region": "us-east-1",
   "main": "stacks/index.ts"
 }

@@ -1,8 +1,8 @@
 import { injectable, inject } from "inversify";
 import TYPES from "../types";
 
-import { Logger } from "@aws-lambda-powertools/logger";
-import { Metrics, MetricUnits } from "@aws-lambda-powertools/metrics";
+import { ClassThatLogs } from "@aws-lambda-powertools/logger";
+import { MetricUnits, MetricsInterface } from "@aws-lambda-powertools/metrics";
 
 /*** interfaces ***/
 import {
@@ -21,8 +21,8 @@ import { Job, JobStatus } from "../entity/Job";
 @injectable()
 export class JobService implements JobServiceInterface {
   private _jobRepository: JobRepositoryInterface;
-  private _logger: Logger;
-  private _metrics: Metrics;
+  private _logger: ClassThatLogs;
+  private _metrics: MetricsInterface;
 
   /**
    * Injecting dependencies
@@ -69,8 +69,8 @@ export class JobService implements JobServiceInterface {
     return {
       metadata: {
         totalRecordsCount,
-        pageSize: listJobDto.pageSize,
-        offset: listJobDto.offset,
+        pageSize: listJobDto.pageSize!,
+        offset: listJobDto.offset!,
       },
       jobs,
     };

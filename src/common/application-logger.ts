@@ -1,10 +1,12 @@
 import { Logger } from "@aws-lambda-powertools/logger";
 import { injectable } from "inversify";
 
+let loggerInstance: Logger;
+
 @injectable()
 export class ApplicationLogger {
   getInstance = (): Logger => {
-    const logger = new Logger({ serviceName: "JobCreation" });
-    return logger;
+    const loggerInstance = new Logger({ serviceName: "JobCreation" });
+    return loggerInstance;
   };
 }

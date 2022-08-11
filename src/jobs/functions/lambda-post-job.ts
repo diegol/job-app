@@ -11,7 +11,7 @@ import {
   LambdaInterface,
   container,
   TYPES,
-} from "../../ common/index";
+} from "../../common/index";
 
 import { eventSchema } from "../schemas/create-job-input-schema";
 import { JobService } from "../job.service";

@@ -6,7 +6,8 @@ import { CreateNoteInputDto } from "./notes/dto/create-note-input.dto";
 import { UpdateNoteInputDto } from "./notes/dto/update-note-input.dto";
 import { Job, JobStatus } from "./entity/Job";
 import { Note } from "./entity/Note";
-import { Logger } from "./ common";
+import { Logger } from "./common";
+import { MetricsInterface } from "@aws-lambda-powertools/metrics";
 
 /**** Jobs interfaces ([TODO] should be split in a seeparate file) ****/
 export interface JobRepositoryInterface {
@@ -54,7 +55,7 @@ export interface ApplicationLoggerInterface {
   getInstance(): Logger;
 }
 export interface ApplicationMetricsInterface {
-  getInstance();
+  getInstance(): MetricsInterface;
 }
 export interface CreateDataSourceInterface {
   getDataSource();

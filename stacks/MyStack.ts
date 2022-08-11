@@ -1,14 +1,17 @@
 import * as sst from "@serverless-stack/resources";
 import { Tags } from "aws-cdk-lib";
 
+const MYSQL_ENGINE = "mysql5.7";
+const DEFAULT_DATABASE_NAME = "acme";
+
 export default class MyStack extends sst.Stack {
   constructor(scope: sst.App, id: string, props?: sst.StackProps) {
     super(scope, id, props);
 
-    const defaultDatabaseName = "acme";
+    const defaultDatabaseName = DEFAULT_DATABASE_NAME;
 
     const cluster = new sst.RDS(this, "Database", {
-      engine: "mysql5.7",
+      engine: MYSQL_ENGINE,
       defaultDatabaseName,
       migrations: "src/migrations",
       //serverless RDS
@@ -52,7 +55,7 @@ export default class MyStack extends sst.Stack {
     });
 
     //Tags to be used by Lumigo in integrated with AWS account
-    // Tags.of(api).add("lumigo:auto-trace", `true`);
+    Tags.of(api).add("lumigo:auto-trace", `true`);
 
     // Show the endpoint in the output
     this.addOutputs({

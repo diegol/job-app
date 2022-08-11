@@ -8,7 +8,7 @@ import {
   container,
   TYPES,
   Tracer,
-} from "../../ common/index";
+} from "../../common/index";
 
 import { JobRepositoryInterface, JobServiceInterface } from "../../interfaces";
 import { eventSchema } from "../schemas/get-job-input-schema";

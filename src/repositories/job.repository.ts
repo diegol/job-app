@@ -33,8 +33,8 @@ export class JobRepository {
     const repository = await this._getRepository();
 
     const job = repository.create(jobData);
-    this._applicationLogger.error("test");
-    this._applicationLogger.error("Exception ", { message: "oops" });
+    this._applicationLogger.error("CreateJobDto");
+    this._applicationLogger.error("Exception ", { message: "CreateJobDto" });
     return repository.save(job);
   }
 

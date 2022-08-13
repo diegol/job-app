@@ -10,7 +10,9 @@ import {
   container,
   TYPES,
   Tracer,
-} from "../../common/index";
+  containerMiddleware,
+  loggerMiddleware,
+} from "../../common/functionCommon";
 
 import { eventSchema } from "../schemas/update-note-input-schema";
 import { NoteService } from "../note.service";
@@ -40,6 +42,8 @@ export class UpdateNote implements LambdaInterface {
 const handler = middy()
   .use(jsonBodyParser()) // parses the request body when it's a JSON and converts it to an object
   .use(validator({ eventSchema })) // validates the input
+  .use(containerMiddleware())
+  .use(loggerMiddleware())
   .use(httpErrorHandler()) // handles common http errors and returns proper responses
   .use(
     cloudwatchMetrics({

@@ -1,8 +1,9 @@
 {
+  "extends": "@tsconfig/node16/tsconfig.json",
     "compilerOptions": {
       "experimentalDecorators": true
     },
-    "extends": "@tsconfig/node16/tsconfig.json",
-    "include": ["src","services"],
-    "experimentalDecorators": true
+    
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
   }

@@ -6,7 +6,6 @@ let TYPES = {
   CreateJob: Symbol("CreateJob"),
   JobService: Symbol("JobService"),
   ListJobs: Symbol("ListJobs"),
-
   NoteRepository: Symbol("NoteRepository"),
   NoteService: Symbol("NoteService"),
 };

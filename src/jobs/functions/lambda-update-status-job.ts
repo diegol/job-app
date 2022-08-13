@@ -10,7 +10,9 @@ import {
   container,
   TYPES,
   Tracer,
-} from "../../ common/index";
+  containerMiddleware,
+  loggerMiddleware,
+} from "../../common/functionCommon";
 
 import { eventSchema } from "../schemas/update-status-job-schema";
 import { JobService } from "../job.service";
@@ -36,6 +38,8 @@ const handler = middy()
   .use(jsonBodyParser()) // parses the request body when it's a JSON and converts it to an object
   .use(validator({ eventSchema })) // validates the input
   .use(httpErrorHandler()) // handles common http errors and returns proper responses
+  .use(containerMiddleware())
+  .use(loggerMiddleware())
   .use(
     cloudwatchMetrics({
       namespace: "JobApp",

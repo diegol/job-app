@@ -11,7 +11,9 @@ import {
   LambdaInterface,
   container,
   TYPES,
-} from "../../common/index";
+  containerMiddleware,
+  loggerMiddleware,
+} from "../../common/functionCommon";
 
 import { eventSchema } from "../schemas/create-job-input-schema";
 import { JobService } from "../job.service";
@@ -39,6 +41,8 @@ export class CreateJob implements LambdaInterface {
 const handler = middy()
   .use(jsonBodyParser()) // parses the request body when it's a JSON and converts it to an object
   .use(validator({ eventSchema })) // validates the input
+  .use(containerMiddleware())
+  .use(loggerMiddleware())
   .use(
     cloudwatchMetrics({
       namespace: "JobApp",

@@ -10,7 +10,9 @@ import {
   container,
   TYPES,
   Tracer,
-} from "../../common/index";
+  containerMiddleware,
+  loggerMiddleware,
+} from "../../common/functionCommon";
 
 import { JobServiceInterface } from "../../interfaces";
 import { eventSchema } from "../schemas/list-job-filter-schema";
@@ -36,6 +38,8 @@ export class ListJobs implements LambdaInterface {
 const handler = middy()
   .use(jsonBodyParser()) // parses the request body when it's a JSON and converts it to an object
   .use(validator({ inputSchema: eventSchema })) // validates the input
+  .use(containerMiddleware())
+  .use(loggerMiddleware())
   .use(
     cloudwatchMetrics({
       namespace: "JobApp",

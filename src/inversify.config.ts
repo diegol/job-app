@@ -1,6 +1,5 @@
 import { Container } from "inversify";
 import TYPES from "./types";
-import { CreateDataSource } from "./common/data-source";
 
 import { JobRepository } from "./repositories/job.repository";
 import {
@@ -12,9 +11,14 @@ import {
   NoteRepositoryInterface,
   NoteServiceInterface,
 } from "./interfaces";
-import { ApplicationLogger } from "./common/application-logger";
-import { ApplicationMetrics } from "./common/application-metrics";
-import { CreateJob } from "./jobs/functions/lambda-post-job";
+
+import {
+  ApplicationLogger,
+  ApplicationMetrics,
+  CreateDataSource,
+} from "./common/index2";
+
+import { CreateJob } from "./jobs/functions/service";
 import { JobService } from "../src/jobs/job.service";
 import { ListJobs } from "./jobs/functions/lambda-get-job-list";
 

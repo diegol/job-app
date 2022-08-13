@@ -8,6 +8,9 @@ import {
   container,
   TYPES,
   Tracer,
+  MutableContext,
+  containerMiddleware,
+  loggerMiddleware,
 } from "../../common/index";
 
 import { JobRepositoryInterface, JobServiceInterface } from "../../interfaces";
@@ -17,17 +20,18 @@ const tracer = new Tracer({ serviceName: "GetJobs" });
 export class GetJob implements LambdaInterface {
   //for AWS X-ray
   @tracer.captureMethod()
-  public async handler(_event: any, _context: any): Promise<any> {
-    const job = await container
-      .get<JobRepositoryInterface>(TYPES.JobRepository)
+  public async handler(_event: any, _context: MutableContext): Promise<any> {
+    const job = await _context.container
+      ?.get<JobRepositoryInterface>(TYPES.JobRepository)
       .findByJobId(_event.pathParameters.jobId);
 
     if (job === null) {
+      _context.logger?.info(`job id ${_event.pathParameters.jobId} not found`);
       return {
         statusCode: 404,
       };
     }
-
+    _context.logger?.info(`job  ${_event.pathParameters.jobId} found`);
     return {
       statusCode: 200,
       headers: { "Content-Type": "application/json" },
@@ -39,6 +43,8 @@ export class GetJob implements LambdaInterface {
 const handler = middy()
   .use(jsonBodyParser()) // parses the request body when it's a JSON and converts it to an object
   .use(validator({ inputSchema: eventSchema })) // validates the input
+  .use(containerMiddleware())
+  .use(loggerMiddleware())
   .use(
     cloudwatchMetrics({
       namespace: "JobApp",

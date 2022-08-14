@@ -1,7 +1,7 @@
 import { injectable, inject } from "inversify";
 import TYPES from "../types";
 
-import { ClassThatLogs } from "@aws-lambda-powertools/logger";
+//import { ClassThatLogs } from "@aws-lambda-powertools/logger";
 import { MetricUnits, MetricsInterface } from "@aws-lambda-powertools/metrics";
 
 /*** interfaces ***/
@@ -21,7 +21,7 @@ import { Job, JobStatus } from "../entity/Job";
 @injectable()
 export class JobService implements JobServiceInterface {
   private _jobRepository: JobRepositoryInterface;
-  private _logger: ClassThatLogs;
+  private _logger; //ClassThatLogs;
   private _metrics: MetricsInterface;
 
   /**

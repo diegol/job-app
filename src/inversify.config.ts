@@ -16,11 +16,9 @@ import {
   ApplicationLogger,
   ApplicationMetrics,
   CreateDataSource,
-} from "./common/index2";
+} from "./common";
 
-import { CreateJob } from "./jobs/functions/service";
 import { JobService } from "../src/jobs/job.service";
-import { ListJobs } from "./jobs/functions/lambda-get-job-list";
 
 import { NoteRepository } from "./repositories/note.repository";
 import { NoteService } from "./notes/note.service";
@@ -37,11 +35,7 @@ container
   .bind<ApplicationMetricsInterface>(TYPES.ApplicationMetrics)
   .to(ApplicationMetrics);
 
-container.bind<ListJobs>(TYPES.ListJobs).to(ListJobs);
-
 container.bind<JobServiceInterface>(TYPES.JobService).to(JobService);
-
-container.bind<CreateJob>(TYPES.CreateJob).to(CreateJob);
 
 container
   .bind<NoteRepositoryInterface>(TYPES.NoteRepository)

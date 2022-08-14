@@ -11,7 +11,7 @@ import {
   MutableContext,
   containerMiddleware,
   loggerMiddleware,
-} from "../../common/index";
+} from "../../common/functionCommon";
 
 import { JobRepositoryInterface, JobServiceInterface } from "../../interfaces";
 import { eventSchema } from "../schemas/get-job-input-schema";

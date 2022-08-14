@@ -1,5 +1,3 @@
-import "reflect-metadata";
-
 import {
   middy,
   validator,
@@ -43,7 +41,7 @@ const handler = middy()
   .use(
     cloudwatchMetrics({
       namespace: "JobApp",
-      dimensions: [{ Action: "CreateJobs" }],
+      dimensions: [{ Action: "UpdateJob" }],
     })
   )
 
